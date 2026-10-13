@@ -1,0 +1,182 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hintergrund: #0b1020;
+  --karten: #151e35;
+  --gold: #f2c76c;
+  --weiss: #f5f5f5;
+  --text: #cbd2e1;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--hintergrund);
+  color: var(--weiss);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 35px 20px;
+}
+
+header h1,
+.startseite h1 {
+  color: var(--gold);
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  margin-bottom: 12px;
+}
+
+header p,
+.startseite > p {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 20px 0 45px;
+}
+
+.startseite {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+}
+
+.startseite .klein {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+}
+
+button,
+.button {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: var(--gold);
+  color: #171717;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover,
+.button:hover {
+  background: #ffda85;
+  transform: translateY(-2px);
+}
+
+.nachricht {
+  width: 100%;
+  max-width: 720px;
+  background: var(--karten);
+  border: 1px solid #35415e;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: left;
+  animation: erscheinen 0.4s ease;
+}
+
+.nachricht[hidden] {
+  display: none;
+}
+
+.nachricht h2 {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.nachricht p {
+  color: var(--weiss);
+  font-size: 1.1rem;
+}
+
+.foto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.foto {
+  min-width: 0;
+  background: var(--karten);
+  border: 1px solid #35415e;
+  border-radius: 16px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  background: #0b1020;
+  border-radius: 10px;
+}
+
+.foto h2 {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin: 14px 5px 5px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+footer {
+  padding: 25px 15px;
+  text-align: center;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+@keyframes erscheinen {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .foto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .foto img {
+    max-height: none;
+  }
+
+  .nachricht {
+    padding: 20px;
+  }
+
+  .startseite {
+    min-height: 80vh;
+  }
+}
